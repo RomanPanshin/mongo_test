@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="my-4">List of Tables</h2>
+<div class="list-group">
+    {% for table in tables %}
+        <a href="{{ url_for('table', collection_name=table) }}" class="list-group-item list-group-item-action">
+            {{ table }}
+        </a>
+    {% endfor %}
+</div>
+{% endblock %}

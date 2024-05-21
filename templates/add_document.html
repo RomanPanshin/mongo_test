@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Add Document to {{ collection_name }}</h2>
+
+<form action="{{ url_for('add_document', collection_name=collection_name) }}" method="post">
+    {% for key in request.args.keys() %}
+        <label for="{{ key }}">{{ key }}</label>
+        <input type="text" id="{{ key }}" name="{{ key }}" value="{{ request.args.get(key) }}">
+        <br>
+    {% endfor %}
+    <button type="submit">Add Document</button>
+</form>
+
+{% endblock %}
+
